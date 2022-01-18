@@ -1,0 +1,20 @@
+--- shibboleth-sp-3.0.1/configs/native.logger	2018-07-10 10:17:23.000000000 +0900
++++ new3/configs/native.logger	2018-09-20 18:01:16.956910989 +0900
+@@ -27,12 +27,9 @@
+ 
+ # define the appender
+ 
+-# Change to SyslogAppender for remote syslog, and set host/port
+-log4j.appender.native_log=org.apache.log4j.LocalSyslogAppender
+-#log4j.appender.native_log.syslogHost=localhost
+-#log4j.appender.native_log.portNumber=514
+-log4j.appender.native_log.syslogName=shibboleth
+-# Facility is numeric, 16 is LOCAL0
+-log4j.appender.native_log.facility=16
++log4j.appender.native_log=org.apache.log4j.RollingFileAppender
++log4j.appender.native_log.fileName=/var/log/shibboleth/native.log
++log4j.appender.native_log.maxFileSize=1000000
++log4j.appender.native_log.maxBackupIndex=10
+ log4j.appender.native_log.layout=org.apache.log4j.PatternLayout
+-log4j.appender.native_log.layout.ConversionPattern=%p %c %x: %m%n
++log4j.appender.native_log.layout.ConversionPattern=%d{%Y-%m-%d %H:%M:%S} %p %c %x: %m%n

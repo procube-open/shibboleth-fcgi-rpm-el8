@@ -1,0 +1,14 @@
+--- shibboleth-sp-3.0.1/fastcgi/shibresponder.cpp	2018-07-10 10:17:23.000000000 +0900
++++ new3/fastcgi/shibresponder.cpp	2018-07-22 17:04:27.815281722 +0900
+@@ -153,9 +153,9 @@
+         if (name && *name) {
+             // Set for later.
+             if (replace || !value)
+-                m_response_headers.erase(name);
++                m_headers.erase(name);
+             if (value && *value)
+-                m_response_headers.insert(make_pair(name, value));
++                m_headers.insert(make_pair(name, value));
+         }
+     }
+ 
